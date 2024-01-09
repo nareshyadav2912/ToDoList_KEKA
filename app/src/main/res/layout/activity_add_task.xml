@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_gravity="center_horizontal"
+    tools:context=".AddTask">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Task"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:padding="20dp"/>
+    <EditText
+        android:id="@+id/task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:layout_marginBottom="12dp"
+        android:hint="Give Task Title"/>
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:textSize="20dp"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:hint="Give Task Description"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        android:padding="12dp">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="From:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/from"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click Here"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        android:padding="12dp">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="To:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/to"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click Here"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        android:padding="12dp">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Prioirty"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+        <Spinner
+            android:id="@+id/color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="6dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:text="Add Task"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Task"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+</LinearLayout>
