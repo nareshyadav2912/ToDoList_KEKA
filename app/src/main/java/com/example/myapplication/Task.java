@@ -76,13 +76,13 @@ public class Task implements Comparable<Task> {
                 c= ResourcesCompat.getColor(context.getResources(),R.color.red,null);
                 break;
             case "Medium":
-                c=ResourcesCompat.getColor(context.getResources(),R.color.yellow,null);
+                c= ResourcesCompat.getColor(context.getResources(),R.color.yellow,null);
                 break;
             case "Low":
                 c=ResourcesCompat.getColor(context.getResources(),R.color.green,null);
                 break;
             default:
-                c=ResourcesCompat.getColor(context.getResources(),R.color.black,null);
+                c=ResourcesCompat.getColor(context.getResources(),R.color.gray,null);
         }
         return c;
     }

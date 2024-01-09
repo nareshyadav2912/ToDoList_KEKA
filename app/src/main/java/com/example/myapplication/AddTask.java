@@ -4,7 +4,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
@@ -105,7 +104,7 @@ public class AddTask extends AppCompatActivity {
                     return;
                 }
                 t.setTask(task.getText().toString());
-                t.setDescription(task.getText().toString());
+                t.setDescription(description.getText().toString());
                 database.addTask(t,date);
                 Toast.makeText(this,"Task Added",Toast.LENGTH_SHORT).show();
                 finish();
@@ -118,6 +117,7 @@ public class AddTask extends AppCompatActivity {
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                     String ho=new DecimalFormat("00").format(hourOfDay);
                     String min=new DecimalFormat("00").format(minute);
+
                     from.setText(ho+":"+min);
                     t.setFrom(ho+":"+min);
                 }
@@ -133,36 +133,23 @@ public class AddTask extends AppCompatActivity {
                     to.setText(ho+":"+min);
                     t.setFrom(ho+":"+min);
                 }
-            },t.getTo().getHour(),t.getTo().getMinute(),true);
+            },t.getTo().getHour(),t.getTo().getMinute(),false);
             timePickerDialog.show();
         });
 
         color.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                t.setColor(color.getSelectedItem().toString());
+                String selectedColor = color.getSelectedItem().toString();
+                //int colorId = getColor(getApplicationContext(), selectedColor);
+                t.setColor(selectedColor); // Set the color name
+                //t.setColorId(colorId);
+                //t.setColor(color.getSelectedItem().toString());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
-            }
-        });
-        color.post(new Runnable() {
-            @Override
-            public void run() {
-                Drawable background = color.getBackground();
-                if (background instanceof LayerDrawable) {
-                    LayerDrawable layerDrawable = (LayerDrawable) background;
-                    Drawable drawable = layerDrawable.getDrawable(0); // Or choose the appropriate layer index
-
-                    if (drawable instanceof GradientDrawable) {
-                        GradientDrawable gradientDrawable = (GradientDrawable) drawable;
-                        // Set gray color for the GradientDrawable
-                        int grayColor = Color.parseColor("#808080"); // Gray color using hexadecimal value
-                        gradientDrawable.setColor(grayColor);
-                    }
-                }
             }
         });
     }
