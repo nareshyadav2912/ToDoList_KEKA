@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
@@ -56,8 +57,8 @@ public class AddTask extends AppCompatActivity {
             t.setColor(getIntent().getStringExtra("Color"));
             color.setSelection(adapter.getPosition(t.getColor()));
 
-            GradientDrawable background= (GradientDrawable) color.getBackground();
-            background.setColor(t.getColorID(AddTask.this));
+//            GradientDrawable background= (GradientDrawable) color.getBackground();
+//            background.setColor(t.getColorID(AddTask.this));
 
             task.setText(t.getTask());
             description.setText(t.getDescription());
@@ -85,7 +86,7 @@ public class AddTask extends AppCompatActivity {
             });
             delete.setOnClickListener(v->{
                 database.deleteTask(t.getID(),date);
-                Toast.makeText(this,"task deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Task Deleted", Toast.LENGTH_SHORT).show();
                 finish();
             });
         }
@@ -130,6 +131,7 @@ public class AddTask extends AppCompatActivity {
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                     String ho=new DecimalFormat("00").format(hourOfDay);
                     String min=new DecimalFormat("00").format(minute);
+
                     to.setText(ho+":"+min);
                     t.setFrom(ho+":"+min);
                 }
@@ -141,10 +143,7 @@ public class AddTask extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 String selectedColor = color.getSelectedItem().toString();
-                //int colorId = getColor(getApplicationContext(), selectedColor);
                 t.setColor(selectedColor); // Set the color name
-                //t.setColorId(colorId);
-                //t.setColor(color.getSelectedItem().toString());
             }
 
             @Override

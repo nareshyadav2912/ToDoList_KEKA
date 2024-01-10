@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -25,7 +27,7 @@ public class Database extends SQLiteOpenHelper  {
 
     }
     public void checkTable(String date){
-        String create="CREATE TABLE IF NOT EXISTS `"+date+"`(`ID` integer, `Task` text,`Description` text,`From` text,`To` text,`Color` text);";
+        String create="CREATE TABLE IF NOT EXISTS `"+date+"`(`ID` integer, `Task` text,`Description` text,`From` text,`To` text,`Color` text );";
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(create);
     }
@@ -33,8 +35,8 @@ public class Database extends SQLiteOpenHelper  {
     public void addTask(Task t, String date){
         checkTable(date);
         SQLiteDatabase db=this.getWritableDatabase();
-        String insert="INSERT INTO `"+date+"` (`ID`,`Task`,`Description`,`From`,`To`,`Color`) VALUES " +
-                " ('"+t.getID()+" ',' "+t.getTask()+"',' "+t.getDescription()+"',' "+t.getFromToString()+"',' "+t.getToToString()+"' ,' "+t.getColor()+"' );";
+        String insert="INSERT INTO `"+date+"` (`ID`, `Task`, `Description`,`From`, `To`, `Color`) VALUES " +
+                " ('"+t.getID()+" ', '"+t.getTask()+"', '"+t.getDescription()+"', '"+t.getFromToString()+"', '"+t.getToToString()+"' , '"+t.getColor()+"' );";
         db.execSQL(insert);
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -73,8 +75,8 @@ public class Database extends SQLiteOpenHelper  {
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void updateTask(Task t, String date){
-        String update="UPDATE ` "+date+" ` SET `Task` =' "+t.getTask()+" ' , `Description`= '"+t.getDescription()+" ', `From` ='"+t.getFromToString()
-                + " ',`To`= '"+t.getToToString()+ " ',`Color`=' "+t.getColor()+" ' WHERE `ID` ="+t.getID()+";";
+        String update= "UPDATE `"+date+"` SET `Task` = '"+t.getTask()+"' , `Description` = '"+t.getDescription()+"', `From` = '"+t.getFromToString()
+                + "', `To` = '"+t.getToToString()+ "', `Color`= '"+t.getColor()+"' WHERE `ID` = "+t.getID()+";";
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(update);
     }

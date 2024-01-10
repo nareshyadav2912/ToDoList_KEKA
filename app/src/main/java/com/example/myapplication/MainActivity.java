@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -129,8 +130,8 @@ public class MainActivity extends AppCompatActivity {
             task.setText(t.getTask());
             description.setText(t.getDescription());
 
-            GradientDrawable backDrawable=(GradientDrawable) task.getBackground();
-            backDrawable.setColor(t.getColorID(MainActivity.this));
+//            GradientDrawable backDrawable=(GradientDrawable) task.getBackground();
+//            backDrawable.setColor(t.getColorID(MainActivity.this));
 
             task.setOnLongClickListener(v1->{
                 Intent i=new Intent(MainActivity.this,AddTask.class);

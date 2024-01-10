@@ -1,8 +1,11 @@
 package com.example.myapplication;
 
+import static android.graphics.Color.*;
+
 import android.content.Context;
-import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Build;
+import android.widget.Spinner;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
